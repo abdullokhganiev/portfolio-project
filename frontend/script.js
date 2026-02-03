@@ -1,7 +1,7 @@
 // Fetch and display skills
 async function loadSkills() {
     try {
-        const response = await fetch('http://localhost:3000/api/skills');
+        const response = await fetch('https://portfolio-project-bho5.onrender.com/api/skills');;
         const skills = await response.json();
         
         const container = document.getElementById('skills-container');
@@ -41,7 +41,7 @@ async function handleContactForm(event) {
     const messageDiv = document.getElementById('form-message');
     
     try {
-        const response = await fetch('http://localhost:3000/api/contact', {
+        const response = await fetch('https://portfolio-project-bho5.onrender.com/api/contact', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
