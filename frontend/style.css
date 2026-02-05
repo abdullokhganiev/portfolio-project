@@ -7,7 +7,10 @@
 body {
     font-family: 'Arial', sans-serif;
     overflow-x: hidden;
+    background-color: #e8e8e8;
 }
+
+/* Navigation - Transparent, sits on top of hero */
 
 /* Navigation */
 nav {
@@ -15,97 +18,93 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    background-color: #f5f5f5;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
+    background: transparent;
 }
 
 .nav-links {
     display: flex;
     gap: 30px;
+    align-items: center; /* Add this to vertically align all items */
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
+    color: white;
     font-weight: 500;
     transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: #666;
+    display: flex; /* Add this */
+    align-items: center; /* Add this */
 }
 
 .contact-btn {
     background-color: white;
     padding: 10px 25px;
     border-radius: 25px;
-    border: 2px solid #333;
+    border: 2px solid white;
+    color: #333 !important;
 }
+
+.logo {
+    margin-left: 30px; /* Moves logo to the right */
+    display: flex;
+    align-items: center;
+}
+
+
+
+.nav-links a:hover {
+    color: #ccc;
+}
+
 
 /* Hero Section */
 .hero {
     display: flex;
     align-items: center;
     min-height: 100vh;
-    margin-top: 0;
-    padding-top: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .hero-content {
     display: flex;
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    min-height: 100vh;
+    position: relative;
 }
 
 .hero-text {
     flex: 1;
-    padding: 50px;
-    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    padding: 50px 100px;
+    background: linear-gradient(135deg, #e8e8e8 0%, #d5d5d5 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.hero-text h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
-}
-
-.name {
-    font-size: 48px;
-    font-weight: bold;
-    display: block;
-    margin-top: 10px;
-}
-
-.title {
-    font-size: 20px;
-    color: #666;
-    margin: 20px 0;
+    padding-bottom: 150px; /* Push content up by adding more padding at bottom */
+    position: relative;
+    z-index: 1;
 }
 
 .social-icons {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     margin-top: 30px;
 }
 
 .social-icons a {
     text-decoration: none;
     color: #333;
-    font-weight: 500;
-    padding: 10px 20px;
+    width: 45px;
+    height: 45px;
     border: 2px solid #333;
-    border-radius: 5px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s;
 }
 
@@ -114,19 +113,47 @@ nav {
     color: white;
 }
 
-.hero-image {
+.social-icons svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* .hero-image {
     flex: 1;
-    background-color: #1a1a1a;
+    background-color: #000000;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 600px;
+    min-height: 100%;
+    position: relative;
+    margin-left: -25%; 
     clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+    z-index: 2;
+} 
+*/
+
+.hero-image {
+    flex: 1;
+    background: 
+        radial-gradient(ellipse at 100% 0%, #333333 0%, transparent 50%),
+        radial-gradient(ellipse at 0% 100%, #222222 0%, transparent 40%),
+        #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    position: relative;
+    margin-left: -25%;
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+    z-index: 2;
 }
 
-.image-placeholder {
-    color: white;
-    font-size: 24px;
+.hero-initials {
+    font-size: 180px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.05);
+    letter-spacing: -8px;
+    user-select: none;
 }
 
 /* Page Sections */
@@ -147,40 +174,92 @@ nav {
     text-align: center;
 }
 
+/* Light navigation (for About, Skills, Contact pages) */
+.nav-light .nav-links a {
+    color: #333; /* Dark text on light background */
+}
+
+.nav-light .nav-links a:hover {
+    color: #666;
+}
+
+.nav-light .contact-btn {
+    background-color: #333;
+    border: 2px solid #333;
+    color: white !important;
+}
+
+.nav-light .contact-btn:hover {
+    background-color: #555;
+    border-color: #555;
+}
+
+/* Page Sections - updated background */
+.page-section {
+    min-height: 100vh;
+    padding: 100px 20px 50px 20px;
+    background-color: #e8e8e8; /* Match home page grey */
+}
+
+
+
+/* Skills Grid */
 /* Skills Grid */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
     margin-top: 40px;
 }
 
 .skill-card {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    background-color: #000000;
+    color: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #666 0%, #333 100%);
 }
 
 .skill-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
 }
 
 .skill-card h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 26px;
+    margin-bottom: 12px;
+    color: white;
 }
 
 .skill-card .category {
-    color: #666;
+    color: #888;
     font-size: 14px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .skill-card .proficiency {
-    color: #333;
-    font-weight: bold;
+    color: #ccc;
+    font-weight: 500;
+    font-size: 15px;
+    display: inline-block;
+    padding: 5px 12px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 20px;
 }
 
 /* Contact Form */
